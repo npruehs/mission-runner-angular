@@ -34,4 +34,16 @@ export class MissionDetailsComponent implements OnInit {
 
     this.charactersService.getCharacters().subscribe(response => this.unassignedCharacters = response.data);
   }
+
+  assign(index: number) {
+    let character = this.unassignedCharacters[index];
+    this.assignedCharacters.push(character);
+    this.unassignedCharacters.splice(index);
+  }
+
+  unassign(index: number) {
+      let character = this.assignedCharacters[index];
+      this.unassignedCharacters.push(character);
+      this.assignedCharacters.splice(index);
+  }
 }

@@ -12,7 +12,7 @@
 
 <h4>Assigned Characters</h4>
 
-<div *ngFor="let character of assignedCharacters">
+<div *ngFor="let character of assignedCharacters; index as index">
 
   <h5> {{ character.name }} </h5>
 
@@ -20,11 +20,14 @@
     <li *ngFor="let skill of character.skills"> {{ skill.skill }} x{{ skill.count }}</li>
   </ul>
 
+  <button (click)="unassign(index)">
+    Unassign
+  </button>
 </div>
 
 <h4>Unassigned Characters</h4>
 
-<div *ngFor="let character of unassignedCharacters">
+<div *ngFor="let character of unassignedCharacters; index as index">
 
   <h5> {{ character.name }} </h5>
 
@@ -32,4 +35,7 @@
     <li *ngFor="let skill of character.skills"> {{ skill.skill }} x{{ skill.count }}</li>
   </ul>
 
+  <button (click)="assign(index)">
+    Assign
+  </button>
 </div>
