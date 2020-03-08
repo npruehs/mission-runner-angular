@@ -10,6 +10,7 @@ import { AccountService } from './account.service';
 import { MissionsComponent } from './missions/missions.component';
 import { MissionDetailsComponent } from './mission-details/mission-details.component';
 import { MissionsService } from './missions.service';
+import { CharactersService } from './characters.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { MissionsService } from './missions.service';
   ],
   providers: [
     AccountService,
-    MissionsService
+    MissionsService,
+    CharactersService
   ],
   bootstrap: [AppComponent]
 })
