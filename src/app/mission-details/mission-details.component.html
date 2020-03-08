@@ -1,11 +1,6 @@
-<h2>Missions</h2>
+<h2>{{ mission.name }}</h2>
 
-<div *ngFor="let mission of missions; index as index">
-
-  <h3>
-    <a [routerLink]="['/missions', index]">{{ mission.name }}</a>
-  </h3>
-
+<div>
   <p>Status: {{ mission.status }} </p>
   <p>Time: {{ mission.remainingTime }} </p>
   <p>Reward: {{ mission.reward }} </p>

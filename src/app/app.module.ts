@@ -8,6 +8,7 @@ import { TopBarComponent } from './top-bar/top-bar.component';
 import { AccountComponent } from './account/account.component';
 import { AccountService } from './account.service';
 import { MissionsComponent } from './missions/missions.component';
+import { MissionDetailsComponent } from './mission-details/mission-details.component';
 import { MissionsService } from './missions.service';
 
 @NgModule({
@@ -15,7 +16,8 @@ import { MissionsService } from './missions.service';
     AppComponent,
     TopBarComponent,
     AccountComponent,
-    MissionsComponent
+    MissionsComponent,
+    MissionDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -23,6 +25,7 @@ import { MissionsService } from './missions.service';
     RouterModule.forRoot([
       { path: '', component: AccountComponent },
       { path: 'missions', component: MissionsComponent },
+      { path: 'missions/:index', component: MissionDetailsComponent },
     ])
   ],
   providers: [
