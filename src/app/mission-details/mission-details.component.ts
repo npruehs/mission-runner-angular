@@ -26,15 +26,15 @@ export class MissionDetailsComponent implements OnInit {
   ngOnInit() {
     this.mission = {};
 
-    this.route.paramMap.subscribe(params => {
-      this.missionsService.getMissions().subscribe((response: NetworkResponse) => {
-        this.mission = response.data[+params.get('index')];
-        this.logger.log("Mission", LogLevel.Verbose, "Missions response:\r\n" + JSON.stringify(response));
-      });
-    });
-
     this.assignedCharacters = [];
     this.unassignedCharacters = [];
+
+    const index = +this.route.snapshot.paramMap.get('index');
+
+    this.missionsService.getMissions().subscribe((response: NetworkResponse) => {
+      this.mission = response.data[index];
+      this.logger.log("Mission", LogLevel.Verbose, "Missions response:\r\n" + JSON.stringify(response));
+    });
 
     this.charactersService.getCharacters().subscribe((response: NetworkResponse) => {
       this.unassignedCharacters = response.data
