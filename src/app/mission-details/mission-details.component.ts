@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { MissionsService } from '../missions.service';
-import { CharactersService } from '../characters.service'
+import { CharactersService } from '../characters.service';
+import { NetworkResponse } from '../network-response';
 
 @Component({
   selector: 'mission-details',
@@ -24,7 +25,7 @@ export class MissionDetailsComponent implements OnInit {
     this.mission = {};
 
     this.route.paramMap.subscribe(params => {
-      this.missionsService.getMissions().subscribe(response => {
+      this.missionsService.getMissions().subscribe((response: NetworkResponse) => {
         this.mission = response.data[+params.get('index')];
       });
     });
@@ -32,7 +33,7 @@ export class MissionDetailsComponent implements OnInit {
     this.assignedCharacters = [];
     this.unassignedCharacters = [];
 
-    this.charactersService.getCharacters().subscribe(response => this.unassignedCharacters = response.data);
+    this.charactersService.getCharacters().subscribe((response: NetworkResponse) => this.unassignedCharacters = response.data);
   }
 
   assign(index: number) {

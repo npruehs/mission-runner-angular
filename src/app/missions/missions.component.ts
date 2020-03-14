@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { MissionsService } from '../missions.service';
+import { NetworkResponse } from '../network-response';
 
 @Component({
   selector: 'missions',
@@ -16,6 +17,6 @@ export class MissionsComponent implements OnInit {
 
   ngOnInit() {
     this.missions = []
-    this.missionsService.getMissions().subscribe(response => this.missions = response.data);
+    this.missionsService.getMissions().subscribe((response: NetworkResponse) => this.missions = response.data);
   }
 }
