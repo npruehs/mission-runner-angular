@@ -13,6 +13,8 @@ import { MissionsService } from './missions.service';
 import { CharactersService } from './characters.service';
 import { LoggerService } from './logger.service';
 
+import { AppRoutingModule }  from './app-routing.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,11 +26,7 @@ import { LoggerService } from './logger.service';
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot([
-      { path: '', component: AccountComponent },
-      { path: 'missions', component: MissionsComponent },
-      { path: 'missions/:index', component: MissionDetailsComponent },
-    ])
+    AppRoutingModule
   ],
   providers: [
     AccountService,
