@@ -12,6 +12,7 @@ import { AccountService } from './account.service';
 import { MissionsComponent } from './missions/missions.component';
 import { MissionsService } from './missions.service';
 import { MissionDetailsComponent } from './mission-details/mission-details.component';
+import { MissionComponent } from './missions/mission.component';
 import { CharactersService } from './characters.service';
 
 import { LoggerService } from './logger.service';
@@ -26,6 +27,7 @@ import { AppRoutingModule }  from './app-routing.module';
     AccountComponent,
     MissionsComponent,
     MissionDetailsComponent,
+    MissionComponent,
     LoadingIndicatorComponent
   ],
   imports: [

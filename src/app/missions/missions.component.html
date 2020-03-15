@@ -9,13 +9,6 @@
       <a [routerLink]="['/missions', index]">{{ mission.name }}</a>
     </h3>
 
-    <p>Status: {{ mission.status }} </p>
-    <p>Time: {{ mission.remainingTime }} </p>
-    <p>Reward: {{ mission.reward }} </p>
-
-    <ul>
-      <li *ngFor="let requirement of mission.requirements"> {{ requirement.requirement }} x{{ requirement.count }}</li>
-    </ul>
-
+    <mission [mission]="mission"></mission>
   </div>
 </div>

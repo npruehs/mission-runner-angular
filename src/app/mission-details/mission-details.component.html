@@ -3,15 +3,7 @@
 <div *ngIf="mission">
   <h2>{{ mission.name }}</h2>
 
-  <div>
-    <p>Status: {{ mission.status }} </p>
-    <p>Time: {{ mission.remainingTime }} </p>
-    <p>Reward: {{ mission.reward }} </p>
-
-    <ul>
-      <li *ngFor="let requirement of mission.requirements"> {{ requirement.requirement }} x{{ requirement.count }}</li>
-    </ul>
-  </div>
+  <mission [mission]="mission"></mission>
 
   <h4>Assigned Characters</h4>
 
