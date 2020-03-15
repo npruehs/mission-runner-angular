@@ -50,7 +50,7 @@ export class MissionDetailsComponent implements OnInit {
   assign(index: number) {
     let character = this.unassignedCharacters[index];
     this.assignedCharacters.push(character);
-    this.unassignedCharacters.splice(index);
+    this.unassignedCharacters.splice(index, 1);
 
     this.logger.log("Mission", LogLevel.Info, "Assigned character " + JSON.stringify(character));
   }
@@ -58,7 +58,7 @@ export class MissionDetailsComponent implements OnInit {
   unassign(index: number) {
       let character = this.assignedCharacters[index];
       this.unassignedCharacters.push(character);
-      this.assignedCharacters.splice(index);
+      this.assignedCharacters.splice(index, 1);
 
       this.logger.log("Mission", LogLevel.Info, "Unassigned character " + JSON.stringify(character));
   }
