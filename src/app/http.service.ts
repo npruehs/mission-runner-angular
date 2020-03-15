@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable, Subject, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
@@ -10,6 +10,9 @@ import { LoggerService, LogLevel } from './logger.service';
 @Injectable()
 export class HttpService {
   private hasErrorSubject = new Subject<boolean>();
+  private httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
 
   hasError = this.hasErrorSubject.asObservable();
 
@@ -22,6 +25,13 @@ export class HttpService {
     return this.http.get(url)
       .pipe(
         catchError((error: any) => this.handleError(url, error, defaultValue))
+      );
+  }
+
+  postData(url: string, data: any) {
+    return this.http.post(url, data, this.httpOptions)
+      .pipe(
+        catchError((error: any) => this.handleError(url, error))
       );
   }
 

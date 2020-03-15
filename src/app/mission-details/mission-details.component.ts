@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 import { MissionsService } from '../missions.service';
 import { CharactersService } from '../characters.service';
@@ -18,6 +19,7 @@ export class MissionDetailsComponent implements OnInit {
 
   constructor(
       private route: ActivatedRoute,
+      private location: Location,
       private missionsService: MissionsService,
       private charactersService: CharactersService,
       private logger: LoggerService
@@ -59,4 +61,9 @@ export class MissionDetailsComponent implements OnInit {
 
       this.logger.log("Mission", LogLevel.Info, "Unassigned character " + JSON.stringify(character));
   }
+
+  startMission(): void {
+     this.missionsService.startMission(this.mission, this.assignedCharacters)
+       .subscribe(() => this.location.back());
+   }
 }
