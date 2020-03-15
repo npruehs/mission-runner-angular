@@ -64,7 +64,43 @@ export class MissionDetailsComponent implements OnInit {
   }
 
   canStartMission(): boolean {
-    return this.mission && this.mission.status == MissionStatus.Open;
+    if (!this.mission) {
+      return false;
+    }
+
+    if (this.mission.status != MissionStatus.Open) {
+      return false;
+    }
+
+    // Get mission requirements.
+    let requirements = new Map();
+
+    for (let requirement of this.mission.requirements) {
+      requirements.set(requirement.requirement, requirement.count);
+    }
+
+    // Apply character skills.
+    for (let character of this.assignedCharacters) {
+      for (let skill of character.skills) {
+        if (requirements.has(skill.skill)) {
+          let requiredSkills = requirements.get(skill.skill);
+
+          if (requiredSkills > 0) {
+            requiredSkills -= skill.count;
+            requirements.set(skill.skill, requiredSkills);
+          }
+        }
+      }
+    }
+
+    // Check if all requirements are met.
+    for (let [skill, count] of requirements.entries()) {
+      if (count > 0) {
+        return false;
+      }
+    }
+
+    return true;
   }
 
   canFinishMission(): boolean {
