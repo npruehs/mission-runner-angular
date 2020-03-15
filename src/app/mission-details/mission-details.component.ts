@@ -6,6 +6,7 @@ import { MissionsService } from '../missions.service';
 import { CharactersService } from '../characters.service';
 import { NetworkResponse } from '../network-response';
 import { LoggerService, LogLevel } from '../logger.service';
+import { Mission, MissionStatus } from '../mission';
 
 @Component({
   selector: 'mission-details',
@@ -62,8 +63,21 @@ export class MissionDetailsComponent implements OnInit {
       this.logger.log("Mission", LogLevel.Info, "Unassigned character " + JSON.stringify(character));
   }
 
+  canStartMission(): boolean {
+    return this.mission && this.mission.status == MissionStatus.Open;
+  }
+
+  canFinishMission(): boolean {
+    return this.mission && this.mission.status == MissionStatus.Finished;
+  }
+
   startMission(): void {
-     this.missionsService.startMission(this.mission, this.assignedCharacters)
-       .subscribe(() => this.location.back());
-   }
+    this.missionsService.startMission(this.mission, this.assignedCharacters)
+      .subscribe(() => this.location.back());
+  }
+
+  finishMission(): void {
+    this.missionsService.finishMission(this.mission)
+      .subscribe(() => this.location.back());
+  }
 }

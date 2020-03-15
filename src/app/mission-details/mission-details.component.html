@@ -35,5 +35,6 @@
     </button>
   </div>
 
-  <button (click)="startMission()">Start Mission</button>
+  <button *ngIf="canStartMission()" (click)="startMission()">Start Mission</button>
+  <button *ngIf="canFinishMission()" (click)="finishMission()">Finish Mission</button>
 </div>
