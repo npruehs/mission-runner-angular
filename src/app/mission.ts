@@ -1,7 +1,7 @@
 export enum MissionStatus {
-  OPEN,
-  RUNNING,
-  FINISHED
+  Open = 'OPEN',
+  Running = 'RUNNING',
+  Finished = 'FINISHED'
 }
 
 export interface MissionRequirement {

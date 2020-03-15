@@ -1,5 +1,5 @@
 export interface NetworkResponse {
   success: boolean;
-  data: Object;
-  error: Object;
+  data: any;
+  error: any;
 }
