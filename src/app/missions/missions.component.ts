@@ -18,10 +18,11 @@ export class MissionsComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    this.missions = []
     this.missionsService.getMissions().subscribe((response: NetworkResponse) => {
-      this.missions = response.data
-      this.logger.log("Mission", LogLevel.Verbose, "Missions response:\r\n" + JSON.stringify(response));
+      if (response) {
+        this.missions = response.data
+        this.logger.log("Mission", LogLevel.Verbose, "Missions response:\r\n" + JSON.stringify(response));
+      }
     });
   }
 }

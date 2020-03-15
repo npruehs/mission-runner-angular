@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
 
-import { HttpClient } from '@angular/common/http';
+import { HttpService } from './http.service';
 
 @Injectable()
 export class CharactersService {
 
   constructor(
-    private http: HttpClient
+    private http: HttpService
   ) {}
 
   getCharacters() {
-    return this.http.get('http://localhost:8080/characters/get?accountId=123');
+    return this.http.getData('http://localhost:8080/characters/get?accountId=123');
   }
 
 }

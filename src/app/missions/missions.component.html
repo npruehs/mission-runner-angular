@@ -1,17 +1,21 @@
-<h2>Missions</h2>
+<loading-indicator [data]="missions"></loading-indicator>
 
-<div *ngFor="let mission of missions; index as index">
+<div *ngIf="missions">
+  <h2>Missions</h2>
 
-  <h3>
-    <a [routerLink]="['/missions', index]">{{ mission.name }}</a>
-  </h3>
+  <div *ngFor="let mission of missions; index as index">
 
-  <p>Status: {{ mission.status }} </p>
-  <p>Time: {{ mission.remainingTime }} </p>
-  <p>Reward: {{ mission.reward }} </p>
+    <h3>
+      <a [routerLink]="['/missions', index]">{{ mission.name }}</a>
+    </h3>
 
-  <ul>
-    <li *ngFor="let requirement of mission.requirements"> {{ requirement.requirement }} x{{ requirement.count }}</li>
-  </ul>
+    <p>Status: {{ mission.status }} </p>
+    <p>Time: {{ mission.remainingTime }} </p>
+    <p>Reward: {{ mission.reward }} </p>
 
+    <ul>
+      <li *ngFor="let requirement of mission.requirements"> {{ requirement.requirement }} x{{ requirement.count }}</li>
+    </ul>
+
+  </div>
 </div>

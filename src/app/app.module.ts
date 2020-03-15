@@ -5,13 +5,17 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
+import { LoadingIndicatorComponent } from './loading-indicator/loading-indicator.component';
+
 import { AccountComponent } from './account/account.component';
 import { AccountService } from './account.service';
 import { MissionsComponent } from './missions/missions.component';
-import { MissionDetailsComponent } from './mission-details/mission-details.component';
 import { MissionsService } from './missions.service';
+import { MissionDetailsComponent } from './mission-details/mission-details.component';
 import { CharactersService } from './characters.service';
+
 import { LoggerService } from './logger.service';
+import { HttpService } from './http.service';
 
 import { AppRoutingModule }  from './app-routing.module';
 
@@ -21,7 +25,8 @@ import { AppRoutingModule }  from './app-routing.module';
     TopBarComponent,
     AccountComponent,
     MissionsComponent,
-    MissionDetailsComponent
+    MissionDetailsComponent,
+    LoadingIndicatorComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +37,8 @@ import { AppRoutingModule }  from './app-routing.module';
     AccountService,
     MissionsService,
     CharactersService,
-    LoggerService
+    LoggerService,
+    HttpService
   ],
   bootstrap: [AppComponent]
 })

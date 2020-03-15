@@ -1,41 +1,45 @@
-<h2>{{ mission.name }}</h2>
+<loading-indicator [data]="mission"></loading-indicator>
 
-<div>
-  <p>Status: {{ mission.status }} </p>
-  <p>Time: {{ mission.remainingTime }} </p>
-  <p>Reward: {{ mission.reward }} </p>
+<div *ngIf="mission">
+  <h2>{{ mission.name }}</h2>
 
-  <ul>
-    <li *ngFor="let requirement of mission.requirements"> {{ requirement.requirement }} x{{ requirement.count }}</li>
-  </ul>
-</div>
+  <div>
+    <p>Status: {{ mission.status }} </p>
+    <p>Time: {{ mission.remainingTime }} </p>
+    <p>Reward: {{ mission.reward }} </p>
 
-<h4>Assigned Characters</h4>
+    <ul>
+      <li *ngFor="let requirement of mission.requirements"> {{ requirement.requirement }} x{{ requirement.count }}</li>
+    </ul>
+  </div>
 
-<div *ngFor="let character of assignedCharacters; index as index">
+  <h4>Assigned Characters</h4>
 
-  <h5> {{ character.name }} </h5>
+  <div *ngFor="let character of assignedCharacters; index as index">
 
-  <ul>
-    <li *ngFor="let skill of character.skills"> {{ skill.skill }} x{{ skill.count }}</li>
-  </ul>
+    <h5> {{ character.name }} </h5>
 
-  <button (click)="unassign(index)">
-    Unassign
-  </button>
-</div>
+    <ul>
+      <li *ngFor="let skill of character.skills"> {{ skill.skill }} x{{ skill.count }}</li>
+    </ul>
 
-<h4>Unassigned Characters</h4>
+    <button (click)="unassign(index)">
+      Unassign
+    </button>
+  </div>
 
-<div *ngFor="let character of unassignedCharacters; index as index">
+  <h4>Unassigned Characters</h4>
 
-  <h5> {{ character.name }} </h5>
+  <div *ngFor="let character of unassignedCharacters; index as index">
 
-  <ul>
-    <li *ngFor="let skill of character.skills"> {{ skill.skill }} x{{ skill.count }}</li>
-  </ul>
+    <h5> {{ character.name }} </h5>
 
-  <button (click)="assign(index)">
-    Assign
-  </button>
+    <ul>
+      <li *ngFor="let skill of character.skills"> {{ skill.skill }} x{{ skill.count }}</li>
+    </ul>
+
+    <button (click)="assign(index)">
+      Assign
+    </button>
+  </div>
 </div>

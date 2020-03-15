@@ -17,7 +17,6 @@ export class AccountComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    this.account = {}
     this.accountService.getAccount().subscribe(response => {
       this.account = response;
       this.logger.log("Account", LogLevel.Verbose, "Account response:\r\n" + JSON.stringify(response));
