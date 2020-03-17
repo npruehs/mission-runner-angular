@@ -7,6 +7,7 @@ import { CharactersService } from '../characters.service';
 import { NetworkResponse } from '../network-response';
 import { LoggerService, LogLevel } from '../logger.service';
 import { Mission, MissionStatus } from '../mission';
+import { LocalizationService } from '../localization.service';
 
 @Component({
   selector: 'mission-details',
@@ -23,6 +24,7 @@ export class MissionDetailsComponent implements OnInit {
       private location: Location,
       private missionsService: MissionsService,
       private charactersService: CharactersService,
+      private localizationService: LocalizationService,
       private logger: LoggerService
     ) { }
 
@@ -36,6 +38,14 @@ export class MissionDetailsComponent implements OnInit {
       if (response) {
         this.mission = response.data[index];
         this.logger.log("Mission", LogLevel.Verbose, "Missions response:\r\n" + JSON.stringify(response));
+
+        this.localizationService.getLocalization().subscribe(() => {
+          this.mission.localizedName = this.localizationService.get(this.mission.name);
+
+          for (let requirement of this.mission.requirements) {
+            requirement.localizedRequirement = this.localizationService.get(requirement.requirement);
+          }
+        });
       }
     });
 
@@ -43,6 +53,16 @@ export class MissionDetailsComponent implements OnInit {
       if (response) {
         this.unassignedCharacters = response.data
         this.logger.log("Mission", LogLevel.Verbose, "Characters response:\r\n" + JSON.stringify(response));
+
+        this.localizationService.getLocalization().subscribe(() => {
+          for (let character of this.unassignedCharacters) {
+            character.localizedName = this.localizationService.get(character.name);
+
+            for (let skill of character.skills) {
+              skill.localizedSkill = this.localizationService.get(skill.skill);
+            }
+          }
+        });
       }
     });
   }

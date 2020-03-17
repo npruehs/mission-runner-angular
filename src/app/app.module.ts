@@ -17,6 +17,7 @@ import { CharactersService } from './characters.service';
 
 import { LoggerService } from './logger.service';
 import { HttpService } from './http.service';
+import { LocalizationService } from './localization.service';
 
 import { AppRoutingModule }  from './app-routing.module';
 
@@ -40,7 +41,8 @@ import { AppRoutingModule }  from './app-routing.module';
     MissionsService,
     CharactersService,
     LoggerService,
-    HttpService
+    HttpService,
+    LocalizationService
   ],
   bootstrap: [AppComponent]
 })

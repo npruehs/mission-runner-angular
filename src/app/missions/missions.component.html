@@ -6,7 +6,7 @@
   <div *ngFor="let mission of missions; index as index">
 
     <h3>
-      <a [routerLink]="['/missions', index]">{{ mission.name }}</a>
+      <a [routerLink]="['/missions', index]">{{ mission.localizedName }}</a>
     </h3>
 
     <mission [mission]="mission"></mission>

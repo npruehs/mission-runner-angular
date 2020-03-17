@@ -4,6 +4,6 @@
   <p>Reward: {{ mission.reward }} </p>
 
   <ul>
-    <li *ngFor="let requirement of mission.requirements"> {{ requirement.requirement }} x{{ requirement.count }}</li>
+    <li *ngFor="let requirement of mission.requirements"> {{ requirement.localizedRequirement }} x{{ requirement.count }}</li>
   </ul>
 </div>

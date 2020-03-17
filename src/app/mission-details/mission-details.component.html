@@ -1,7 +1,7 @@
 <loading-indicator [data]="mission"></loading-indicator>
 
 <div *ngIf="mission">
-  <h2>{{ mission.name }}</h2>
+  <h2>{{ mission.localizedName }}</h2>
 
   <mission [mission]="mission"></mission>
 
@@ -9,10 +9,10 @@
 
   <div *ngFor="let character of assignedCharacters; index as index">
 
-    <h5> {{ character.name }} </h5>
+    <h5> {{ character.localizedName }} </h5>
 
     <ul>
-      <li *ngFor="let skill of character.skills"> {{ skill.skill }} x{{ skill.count }}</li>
+      <li *ngFor="let skill of character.skills"> {{ skill.localizedSkill }} x{{ skill.count }}</li>
     </ul>
 
     <button (click)="unassign(index)">
@@ -24,10 +24,10 @@
 
   <div *ngFor="let character of unassignedCharacters; index as index">
 
-    <h5> {{ character.name }} </h5>
+    <h5> {{ character.localizedName }} </h5>
 
     <ul>
-      <li *ngFor="let skill of character.skills"> {{ skill.skill }} x{{ skill.count }}</li>
+      <li *ngFor="let skill of character.skills"> {{ skill.localizedSkill }} x{{ skill.count }}</li>
     </ul>
 
     <button (click)="assign(index)">
