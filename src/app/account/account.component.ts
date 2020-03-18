@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { AccountService } from '../account.service';
+import { Account } from '../account';
 import { LoggerService, LogLevel } from '../logger.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { LoggerService, LogLevel } from '../logger.service';
   styleUrls: ['./account.component.css']
 })
 export class AccountComponent implements OnInit {
-  account;
+  account: Account;
 
   constructor(
       private accountService: AccountService,
@@ -17,7 +18,7 @@ export class AccountComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    this.accountService.getAccount().subscribe(response => {
+    this.accountService.getAccount().subscribe((response: Account) => {
       this.account = response;
       this.logger.log("Account", LogLevel.Verbose, "Account response:\r\n" + JSON.stringify(response));
     });

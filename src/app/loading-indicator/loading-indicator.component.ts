@@ -8,7 +8,7 @@ import { HttpService } from '../http.service';
   styleUrls: ['./loading-indicator.component.css']
 })
 export class LoadingIndicatorComponent implements OnInit {
-  @Input() data: Object;
+  @Input() data: any;
   hasError: boolean;
 
   constructor(private http: HttpService) {

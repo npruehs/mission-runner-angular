@@ -7,6 +7,7 @@ import { CharactersService } from '../characters.service';
 import { NetworkResponse } from '../network-response';
 import { LoggerService, LogLevel } from '../logger.service';
 import { Mission, MissionStatus } from '../mission';
+import { Character } from '../character';
 import { LocalizationService } from '../localization.service';
 
 @Component({
@@ -15,9 +16,9 @@ import { LocalizationService } from '../localization.service';
   styleUrls: ['./mission-details.component.css']
 })
 export class MissionDetailsComponent implements OnInit {
-  mission;
-  assignedCharacters;
-  unassignedCharacters;
+  mission: Mission;
+  assignedCharacters: Character[];
+  unassignedCharacters: Character[];
 
   constructor(
       private route: ActivatedRoute,
@@ -34,7 +35,7 @@ export class MissionDetailsComponent implements OnInit {
 
     const index = +this.route.snapshot.paramMap.get('index');
 
-    this.missionsService.getMissions().subscribe((response: NetworkResponse) => {
+    this.missionsService.getMissions().subscribe((response: NetworkResponse<Mission[]>) => {
       if (response) {
         this.mission = response.data[index];
         this.logger.log("Mission", LogLevel.Verbose, "Missions response:\r\n" + JSON.stringify(response));
@@ -49,7 +50,7 @@ export class MissionDetailsComponent implements OnInit {
       }
     });
 
-    this.charactersService.getCharacters().subscribe((response: NetworkResponse) => {
+    this.charactersService.getCharacters().subscribe((response: NetworkResponse<Character[]>) => {
       if (response) {
         this.unassignedCharacters = response.data
         this.logger.log("Mission", LogLevel.Verbose, "Characters response:\r\n" + JSON.stringify(response));
@@ -67,7 +68,7 @@ export class MissionDetailsComponent implements OnInit {
     });
   }
 
-  assign(index: number) {
+  assign(index: number): void {
     let character = this.unassignedCharacters[index];
     this.assignedCharacters.push(character);
     this.unassignedCharacters.splice(index, 1);
@@ -75,7 +76,7 @@ export class MissionDetailsComponent implements OnInit {
     this.logger.log("Mission", LogLevel.Info, "Assigned character " + JSON.stringify(character));
   }
 
-  unassign(index: number) {
+  unassign(index: number): void {
       let character = this.assignedCharacters[index];
       this.unassignedCharacters.push(character);
       this.assignedCharacters.splice(index, 1);
@@ -93,7 +94,7 @@ export class MissionDetailsComponent implements OnInit {
     }
 
     // Get mission requirements.
-    let requirements = new Map();
+    let requirements = new Map<string, number>();
 
     for (let requirement of this.mission.requirements) {
       requirements.set(requirement.requirement, requirement.count);

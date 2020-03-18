@@ -1,5 +1,5 @@
-export interface NetworkResponse {
+export interface NetworkResponse<T> {
   success: boolean;
-  data: any;
+  data: T;
   error: any;
 }

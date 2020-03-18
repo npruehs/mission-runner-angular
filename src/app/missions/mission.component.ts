@@ -9,7 +9,7 @@ import { Mission, MissionStatus } from '../mission';
 })
 export class MissionComponent implements OnInit {
   @Input() mission: Mission;
-  interval;
+  interval: any;
 
   constructor() {
   }

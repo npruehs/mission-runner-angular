@@ -21,14 +21,14 @@ export class HttpService {
     private logger: LoggerService
   ) {}
 
-  getData<T>(url: string, defaultValue?: T) {
-    return this.http.get(url)
+  getData<T>(url: string, defaultValue?: T): Observable<T> {
+    return this.http.get<T>(url)
       .pipe(
         catchError((error: any) => this.handleError(url, error, defaultValue))
       );
   }
 
-  postData(url: string, data: any) {
+  postData(url: string, data: any): Observable<Object> {
     return this.http.post(url, data, this.httpOptions)
       .pipe(
         catchError((error: any) => this.handleError(url, error))

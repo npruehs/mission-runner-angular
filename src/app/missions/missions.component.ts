@@ -21,7 +21,7 @@ export class MissionsComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    this.missionsService.getMissions().subscribe((response: NetworkResponse) => {
+    this.missionsService.getMissions().subscribe((response: NetworkResponse<Mission[]>) => {
       if (response) {
         this.missions = response.data;
         this.logger.log("Mission", LogLevel.Verbose, "Missions response:\r\n" + JSON.stringify(response));

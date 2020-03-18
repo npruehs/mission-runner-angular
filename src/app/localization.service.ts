@@ -8,8 +8,8 @@ import { LoggerService, LogLevel } from './logger.service';
 
 @Injectable()
 export class LocalizationService {
-  localizationTable;
-  currentLanguage;
+  localizationTable: Map<string, Object>;
+  currentLanguage: string;
 
   constructor(
     private http: HttpService,
@@ -22,7 +22,7 @@ export class LocalizationService {
     // Check for cached localization.
     if (this.localizationTable) {
       return new Observable((observer) => {
-        let response: NetworkResponse = {
+        let response: NetworkResponse<Map<string, Object>> = {
           success: true,
           data: this.localizationTable,
           error: null
@@ -35,7 +35,7 @@ export class LocalizationService {
     // Fetch localization from server.
     let observable = this.http.getData('http://localhost:8080/localization/get');
 
-    observable.subscribe((response: NetworkResponse) => {
+    observable.subscribe((response: NetworkResponse<LocalizationData>) => {
         if (response) {
           let localizationData: LocalizationData = response.data;
 
@@ -52,7 +52,7 @@ export class LocalizationService {
     return observable;
   }
 
-  get(id: string) {
+  get(id: string): string {
     if (!this.localizationTable) {
       return id;
     }

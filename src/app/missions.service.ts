@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
 
+import { Observable } from 'rxjs';
+
 import { HttpService } from './http.service';
 import { AccountService} from './account.service';
+import { NetworkResponse } from './network-response';
 
 import { Mission } from './mission';
 import { Character } from './character';
@@ -14,11 +17,11 @@ export class MissionsService {
     private accountService: AccountService
   ) {}
 
-  getMissions() {
+  getMissions(): Observable<NetworkResponse<Mission[]>> {
     return this.http.getData('http://localhost:8080/missions/get?accountId=123');
   }
 
-  startMission(mission: Mission, assignedCharacters: Character[]) {
+  startMission(mission: Mission, assignedCharacters: Character[]): Observable<Object> {
     let request: StartMissionRequest = {
       accountId: this.accountService.accountId,
       missionId: mission.id,
@@ -32,7 +35,7 @@ export class MissionsService {
     return this.http.postData('http://localhost:8080/missions/start', request);
   }
 
-  finishMission(mission: Mission) {
+  finishMission(mission: Mission): Observable<Object> {
     let request: FinishMissionRequest = {
       accountId: this.accountService.accountId,
       missionId: mission.id,

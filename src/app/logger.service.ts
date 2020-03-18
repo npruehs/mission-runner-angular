@@ -9,17 +9,15 @@ export enum LogLevel {
 
 @Injectable()
 export class LoggerService {
-  logLevels;
+  logLevels: Map<string, LogLevel> = new Map<string, LogLevel>();
   tempLogCategory: string = "Temp";
 
   constructor() {
-    this.logLevels = {
-      tempLogCategory: LogLevel.Verbose
-    };
+    this.logLevels.set('tempLogCategory', LogLevel.Verbose);
   }
 
   setLogLevel(logCategory: string, categoryLogLevel: LogLevel) {
-    this.logLevels[logCategory] = categoryLogLevel;
+    this.logLevels.set(logCategory, categoryLogLevel);
   }
 
   logTemp(message: string) {
@@ -27,8 +25,8 @@ export class LoggerService {
   }
 
   log(logCategory: string, logLevel: LogLevel, message: string) {
-    if (logCategory in this.logLevels) {
-      let categoryLogLevel = this.logLevels[logCategory];
+    if (this.logLevels.has(logCategory)) {
+      let categoryLogLevel = this.logLevels.get(logCategory);
 
       if (logLevel > categoryLogLevel) {
         return;
