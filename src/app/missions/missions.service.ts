@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs';
 
-import { HttpService } from './http.service';
-import { AccountService} from './account.service';
-import { NetworkResponse } from './network-response';
+import { HttpService } from '../http.service';
+import { NetworkResponse } from '../network-response';
+
+import { AccountService} from '../account/account.service';
+import { Character } from '../characters//character';
 
 import { Mission } from './mission';
-import { Character } from './character';
 
 @Injectable()
 export class MissionsService {

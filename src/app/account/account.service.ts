@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs';
 
-import { HttpService } from './http.service';
+import { HttpService } from '../http.service';
+
 import { Account } from './account';
 
 @Injectable()

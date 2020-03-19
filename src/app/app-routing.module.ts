@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AccountComponent } from './account/account.component';
 import { MissionsComponent } from './missions/missions.component';
-import { MissionDetailsComponent } from './mission-details/mission-details.component';
+import { MissionDetailsComponent } from './missions/mission-details.component';
 
 const routes: Routes = [
   { path: '', component: AccountComponent },

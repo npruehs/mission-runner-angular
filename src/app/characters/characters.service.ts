@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs';
 
-import { HttpService } from './http.service';
-import { NetworkResponse } from './network-response';
+import { HttpService } from '../http.service';
+import { NetworkResponse } from '../network-response';
+
 import { Character } from './character';
 
 @Injectable()

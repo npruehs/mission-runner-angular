@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Mission, MissionStatus } from '../mission';
-import { MissionsService } from '../missions.service';
 import { NetworkResponse } from '../network-response';
 import { LoggerService, LogLevel } from '../logger.service';
 import { LocalizationService } from '../localization.service';
+
+import { Mission, MissionStatus } from './mission';
+import { MissionsService } from './missions.service';
 
 @Component({
   selector: 'missions',

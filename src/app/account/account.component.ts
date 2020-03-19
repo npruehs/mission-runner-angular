@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
-import { AccountService } from '../account.service';
-import { Account } from '../account';
 import { LoggerService, LogLevel } from '../logger.service';
+
+import { AccountService } from './account.service';
+import { Account } from './account';
 
 @Component({
   selector: 'account',

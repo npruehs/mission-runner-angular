@@ -2,13 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { MissionsService } from '../missions.service';
-import { CharactersService } from '../characters.service';
 import { NetworkResponse } from '../network-response';
 import { LoggerService, LogLevel } from '../logger.service';
-import { Mission, MissionStatus } from '../mission';
-import { Character } from '../character';
 import { LocalizationService } from '../localization.service';
+
+import { CharactersService } from '../characters/characters.service';
+import { Character } from '../characters/character';
+
+import { MissionsService } from './missions.service';
+import { Mission, MissionStatus } from './mission';
 
 @Component({
   selector: 'mission-details',

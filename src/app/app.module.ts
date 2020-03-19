@@ -8,12 +8,12 @@ import { TopBarComponent } from './top-bar/top-bar.component';
 import { LoadingIndicatorComponent } from './loading-indicator/loading-indicator.component';
 
 import { AccountComponent } from './account/account.component';
-import { AccountService } from './account.service';
+import { AccountService } from './account/account.service';
+import { CharactersService } from './characters/characters.service';
 import { MissionsComponent } from './missions/missions.component';
-import { MissionsService } from './missions.service';
-import { MissionDetailsComponent } from './mission-details/mission-details.component';
+import { MissionsService } from './missions/missions.service';
+import { MissionDetailsComponent } from './missions/mission-details.component';
 import { MissionComponent } from './missions/mission.component';
-import { CharactersService } from './characters.service';
 
 import { LoggerService } from './logger.service';
 import { HttpService } from './http.service';

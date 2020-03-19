@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { Mission, MissionStatus } from '../mission';
+import { Mission, MissionStatus } from './mission';
 
 @Component({
   selector: 'mission',
