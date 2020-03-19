@@ -10,7 +10,7 @@ import { LoggerService, LogLevel } from '../logger.service';
   styleUrls: ['./account.component.css']
 })
 export class AccountComponent implements OnInit {
-  account: Account;
+  private account: Account;
 
   constructor(
       private accountService: AccountService,
@@ -22,5 +22,9 @@ export class AccountComponent implements OnInit {
       this.account = response;
       this.logger.log("Account", LogLevel.Verbose, "Account response:\r\n" + JSON.stringify(response));
     });
+  }
+
+  getAccount(): Account {
+    return this.account;
   }
 }

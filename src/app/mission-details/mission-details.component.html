@@ -1,13 +1,13 @@
-<loading-indicator [data]="mission"></loading-indicator>
+<loading-indicator [data]="getMission()"></loading-indicator>
 
-<div *ngIf="mission">
-  <h2>{{ mission.localizedName }}</h2>
+<div *ngIf="getMission()">
+  <h2>{{ getMission().localizedName }}</h2>
 
-  <mission [mission]="mission"></mission>
+  <mission [mission]="getMission()"></mission>
 
   <h4>Assigned Characters</h4>
 
-  <div *ngFor="let character of assignedCharacters; index as index">
+  <div *ngFor="let character of getAssignedCharacters(); index as index">
 
     <h5> {{ character.localizedName }} </h5>
 
@@ -22,7 +22,7 @@
 
   <h4>Unassigned Characters</h4>
 
-  <div *ngFor="let character of unassignedCharacters; index as index">
+  <div *ngFor="let character of getUnassignedCharacters(); index as index">
 
     <h5> {{ character.localizedName }} </h5>
 

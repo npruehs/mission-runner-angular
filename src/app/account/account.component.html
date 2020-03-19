@@ -1,9 +1,9 @@
-<loading-indicator [data]="account"></loading-indicator>
+<loading-indicator [data]="getAccount()"></loading-indicator>
 
-<div *ngIf="account">
+<div *ngIf="getAccount()">
 
-  <h2>{{ account.name }}</h2>
+  <h2>{{ getAccount().name }}</h2>
 
-  <p>Level: {{ account.level }}</p>
-  <p>Score: {{ account.score }}</p>
+  <p>Level: {{ getAccount().level }}</p>
+  <p>Score: {{ getAccount().score }}</p>
 </div>

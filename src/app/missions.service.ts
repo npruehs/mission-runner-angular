@@ -23,7 +23,7 @@ export class MissionsService {
 
   startMission(mission: Mission, assignedCharacters: Character[]): Observable<Object> {
     let request: StartMissionRequest = {
-      accountId: this.accountService.accountId,
+      accountId: this.accountService.getAccountId(),
       missionId: mission.id,
       characterIds: []
     };
@@ -37,7 +37,7 @@ export class MissionsService {
 
   finishMission(mission: Mission): Observable<Object> {
     let request: FinishMissionRequest = {
-      accountId: this.accountService.accountId,
+      accountId: this.accountService.getAccountId(),
       missionId: mission.id,
     };
 

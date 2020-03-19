@@ -7,7 +7,7 @@ import { Account } from './account';
 
 @Injectable()
 export class AccountService {
-  accountId: string;
+  private accountId: string;
 
   constructor(
     private http: HttpService
@@ -17,5 +17,9 @@ export class AccountService {
 
   getAccount(): Observable<Account> {
     return this.http.getData('http://localhost:8080/account/get?id=' + this.accountId);
+  }
+
+  getAccountId(): string {
+    return this.accountId;
   }
 }

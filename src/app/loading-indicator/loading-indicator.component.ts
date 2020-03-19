@@ -7,14 +7,20 @@ import { HttpService } from '../http.service';
   templateUrl: './loading-indicator.component.html',
   styleUrls: ['./loading-indicator.component.css']
 })
-export class LoadingIndicatorComponent implements OnInit {
-  @Input() data: any;
-  hasError: boolean;
+export class LoadingIndicatorComponent {
+  @Input()
+  private data: any;
+  private hasHttpError: boolean;
 
   constructor(private http: HttpService) {
-    http.hasError.subscribe(hasError => this.hasError = hasError);
+    http.hasErrorObservable().subscribe(hasError => this.hasHttpError = hasError);
   }
 
-  ngOnInit() {
+  getData(): any {
+    return this.data;
+  }
+
+  hasError(): boolean {
+    return this.hasHttpError;
   }
 }

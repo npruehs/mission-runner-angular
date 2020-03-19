@@ -12,7 +12,7 @@ import { LocalizationService } from '../localization.service';
   styleUrls: ['./missions.component.css']
 })
 export class MissionsComponent implements OnInit {
-  missions: Mission[];
+  private missions: Mission[];
 
   constructor(
       private missionsService: MissionsService,
@@ -37,5 +37,9 @@ export class MissionsComponent implements OnInit {
         });
       }
     });
+  }
+
+  getMissions(): Mission[] {
+    return this.missions;
   }
 }

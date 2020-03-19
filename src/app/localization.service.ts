@@ -8,8 +8,8 @@ import { LoggerService, LogLevel } from './logger.service';
 
 @Injectable()
 export class LocalizationService {
-  localizationTable: Map<string, Object>;
-  currentLanguage: string;
+  private localizationTable: Map<string, Object>;
+  private currentLanguage: string;
 
   constructor(
     private http: HttpService,
@@ -18,7 +18,7 @@ export class LocalizationService {
     this.currentLanguage = 'en';
   }
 
-  getLocalization() {
+  getLocalization(): Observable<Object> {
     // Check for cached localization.
     if (this.localizationTable) {
       return new Observable((observer) => {

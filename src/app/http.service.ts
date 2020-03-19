@@ -14,7 +14,7 @@ export class HttpService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
-  hasError = this.hasErrorSubject.asObservable();
+  private hasError = this.hasErrorSubject.asObservable();
 
   constructor(
     private http: HttpClient,
@@ -39,5 +39,9 @@ export class HttpService {
     this.hasErrorSubject.next(true);
     this.logger.log("HTTP", LogLevel.Error, url + ' - ERROR: ' + JSON.stringify(error));
     return of(defaultValue as T);
+  }
+
+  hasErrorObservable(): Observable<boolean> {
+    return this.hasError;
   }
 }

@@ -8,8 +8,9 @@ import { Mission, MissionStatus } from '../mission';
   styleUrls: ['./mission.component.css']
 })
 export class MissionComponent implements OnInit {
-  @Input() mission: Mission;
-  interval: any;
+  @Input()
+  private mission: Mission;
+  private interval: any;
 
   constructor() {
   }
@@ -34,5 +35,9 @@ export class MissionComponent implements OnInit {
         }, 1000);
       }
     }
+  }
+
+  getMission(): Mission {
+    return this.mission;
   }
 }

@@ -16,9 +16,9 @@ import { LocalizationService } from '../localization.service';
   styleUrls: ['./mission-details.component.css']
 })
 export class MissionDetailsComponent implements OnInit {
-  mission: Mission;
-  assignedCharacters: Character[];
-  unassignedCharacters: Character[];
+  private mission: Mission;
+  private assignedCharacters: Character[];
+  private unassignedCharacters: Character[];
 
   constructor(
       private route: ActivatedRoute,
@@ -136,5 +136,17 @@ export class MissionDetailsComponent implements OnInit {
   finishMission(): void {
     this.missionsService.finishMission(this.mission)
       .subscribe(() => this.location.back());
+  }
+
+  getMission(): Mission {
+    return this.mission;
+  }
+
+  getAssignedCharacters(): Character[] {
+    return this.assignedCharacters;
+  }
+
+  getUnassignedCharacters(): Character[] {
+    return this.unassignedCharacters;
   }
 }

@@ -1,9 +1,9 @@
-<loading-indicator [data]="missions"></loading-indicator>
+<loading-indicator [data]="getMissions()"></loading-indicator>
 
-<div *ngIf="missions">
+<div *ngIf="getMissions()">
   <h2>Missions</h2>
 
-  <div *ngFor="let mission of missions; index as index">
+  <div *ngFor="let mission of getMissions(); index as index">
 
     <h3>
       <a [routerLink]="['/missions', index]">{{ mission.localizedName }}</a>
