@@ -1,7 +1,7 @@
 <loading-indicator [data]="getMissions()"></loading-indicator>
 
 <div *ngIf="getMissions()">
-  <h2>Missions</h2>
+  <h2 i18n="@@missions.header.missions">Missions</h2>
 
   <div *ngFor="let mission of getMissions(); index as index">
 

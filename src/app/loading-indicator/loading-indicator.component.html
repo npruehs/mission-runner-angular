@@ -1,6 +1,2 @@
-<div *ngIf="!getData()">
-  Loading...
-</div>
-<div *ngIf="hasError()">
-  ERROR!
-</div>
+<div *ngIf="!getData()" i18n="@@loadingindicator.label.loading">Loading...</div>
+<div *ngIf="hasError()" i18n="@@loadingindicator.label.error">ERROR!</div>

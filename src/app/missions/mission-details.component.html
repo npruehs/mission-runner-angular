@@ -5,7 +5,7 @@
 
   <mission [mission]="getMission()"></mission>
 
-  <h4>Assigned Characters</h4>
+  <h4 i18n="@@missiondetails.header.assignedcharacters">Assigned Characters</h4>
 
   <div *ngFor="let character of getAssignedCharacters(); index as index">
 
@@ -15,12 +15,10 @@
       <li *ngFor="let skill of character.skills"> {{ skill.localizedSkill }} x{{ skill.count }}</li>
     </ul>
 
-    <button (click)="unassign(index)">
-      Unassign
-    </button>
+    <button (click)="unassign(index)" i18n="@@missiondetails.button.unassign">Unassign</button>
   </div>
 
-  <h4>Unassigned Characters</h4>
+  <h4 i18n="@@missiondetails.header.unassignedcharacters">Unassigned Characters</h4>
 
   <div *ngFor="let character of getUnassignedCharacters(); index as index">
 
@@ -30,11 +28,9 @@
       <li *ngFor="let skill of character.skills"> {{ skill.localizedSkill }} x{{ skill.count }}</li>
     </ul>
 
-    <button (click)="assign(index)">
-      Assign
-    </button>
+    <button (click)="assign(index)" i18n="@@missiondetails.button.assign">Assign</button>
   </div>
 
-  <button *ngIf="canStartMission()" (click)="startMission()">Start Mission</button>
-  <button *ngIf="canFinishMission()" (click)="finishMission()">Finish Mission</button>
+  <button *ngIf="canStartMission()" (click)="startMission()" i18n="@@missiondetails.button.startmission">Start Mission</button>
+  <button *ngIf="canFinishMission()" (click)="finishMission()" i18n="@@missiondetails.button.finishmission">Finish Mission</button>
 </div>

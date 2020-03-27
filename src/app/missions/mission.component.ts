@@ -12,6 +12,8 @@ export class MissionComponent implements OnInit {
   private mission: Mission;
   private interval: any;
 
+  MissionStatus = MissionStatus;
+
   constructor() {
   }
 

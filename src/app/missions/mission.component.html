@@ -1,7 +1,13 @@
 <div *ngIf="getMission()">
-  <p>Status: {{ getMission().status }} </p>
-  <p>Time: {{ getMission().remainingTime }} </p>
-  <p>Reward: {{ getMission().reward }} </p>
+  <p><span i18n="@@mission.label.status">Status:</span>&nbsp;
+    <ng-container [ngSwitch]="getMission().status">
+      <span *ngSwitchCase="MissionStatus.Open" i18n="@@mission.label.status.open">Open</span>
+      <span *ngSwitchCase="MissionStatus.Running" i18n="@@mission.label.status.running">Running</span>
+      <span *ngSwitchCase="MissionStatus.Finished" i18n="@@mission.label.status.finished">Finished</span>
+    </ng-container>
+  </p>
+  <p><span i18n="@@mission.label.time">Time:</span> {{ getMission().remainingTime }} </p>
+  <p><span i18n="@@mission.label.reward">Reward:</span> {{ getMission().reward }} </p>
 
   <ul>
     <li *ngFor="let requirement of getMission().requirements"> {{ requirement.localizedRequirement }} x{{ requirement.count }}</li>
