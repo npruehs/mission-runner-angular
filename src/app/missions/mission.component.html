@@ -1,7 +1,7 @@
 <div *ngIf="getMission()">
-  <p>Status: {{ getMission().status }} </p>
-  <p>Time: {{ getMission().remainingTime }} </p>
-  <p>Reward: {{ getMission().reward }} </p>
+  <p><span i18n="@@mission.label.status">Status:</span> {{ getMission().status }} </p>
+  <p><span i18n="@@mission.label.time">Time:</span> {{ getMission().remainingTime }} </p>
+  <p><span i18n="@@mission.label.reward">Reward:</span> {{ getMission().reward }} </p>
 
   <ul>
     <li *ngFor="let requirement of getMission().requirements"> {{ requirement.localizedRequirement }} x{{ requirement.count }}</li>
