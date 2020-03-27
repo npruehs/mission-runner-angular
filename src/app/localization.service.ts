@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, LOCALE_ID, Inject } from '@angular/core';
 
 import { Observable } from 'rxjs';
 
@@ -13,9 +13,12 @@ export class LocalizationService {
 
   constructor(
     private http: HttpService,
-    private logger: LoggerService
+    private logger: LoggerService,
+    @Inject(LOCALE_ID) private localeId: string
   ) {
-    this.currentLanguage = 'en';
+    this.currentLanguage = localeId.substring(0, 2);
+
+    this.logger.log("Localization", LogLevel.Info, "Language: " + this.currentLanguage);
   }
 
   getLocalization(): Observable<Object> {
@@ -39,7 +42,7 @@ export class LocalizationService {
         if (response) {
           let localizationData: LocalizationData = response.data;
 
-          this.logger.log("Mission", LogLevel.Verbose, "Localization response:\r\n" + JSON.stringify(response));
+          this.logger.log("Localization", LogLevel.Verbose, "Localization response:\r\n" + JSON.stringify(response));
 
           this.localizationTable = new Map();
 
