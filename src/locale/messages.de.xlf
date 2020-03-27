@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
     <body>
       <trans-unit id="topbar.link.account" datatype="html">
         <source>Account</source>
@@ -98,12 +98,36 @@
           <context context-type="linenumber">2</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="mission.label.status.open" datatype="html">
+        <source>Open</source>
+        <target>Offen</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/missions/mission.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="mission.label.status.running" datatype="html">
+        <source>Running</source>
+        <target>L&auuml;uft</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/missions/mission.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="mission.label.status.finished" datatype="html">
+        <source>Finished</source>
+        <target>Abgeschlossen</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/missions/mission.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="mission.label.time" datatype="html">
         <source>Time:</source>
         <target>Dauer:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/missions/mission.component.html</context>
-          <context context-type="linenumber">3</context>
+          <context context-type="linenumber">9</context>
         </context-group>
       </trans-unit>
       <trans-unit id="mission.label.reward" datatype="html">
@@ -111,7 +135,7 @@
         <target>Belohnung:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/missions/mission.component.html</context>
-          <context context-type="linenumber">4</context>
+          <context context-type="linenumber">10</context>
         </context-group>
       </trans-unit>
       <trans-unit id="loadingindicator.label.loading" datatype="html">
@@ -127,7 +151,7 @@
         <target>FEHLER!</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/loading-indicator/loading-indicator.component.html</context>
-          <context context-type="linenumber">4</context>
+          <context context-type="linenumber">2</context>
         </context-group>
       </trans-unit>
     </body>
