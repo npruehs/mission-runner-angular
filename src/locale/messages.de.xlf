@@ -108,7 +108,7 @@
       </trans-unit>
       <trans-unit id="mission.label.status.running" datatype="html">
         <source>Running</source>
-        <target>L&auuml;uft</target>
+        <target>L&auml;uft</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/missions/mission.component.html</context>
           <context context-type="linenumber">5</context>
