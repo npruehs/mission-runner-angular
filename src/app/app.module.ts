@@ -21,6 +21,8 @@ import { LocalizationService } from './localization.service';
 
 import { AppRoutingModule }  from './app-routing.module';
 
+import { ButtonModule } from 'primeng/button';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +36,8 @@ import { AppRoutingModule }  from './app-routing.module';
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ButtonModule
   ],
   providers: [
     AccountService,
