@@ -23,6 +23,7 @@ import { AppRoutingModule }  from './app-routing.module';
 
 import { ButtonModule } from 'primeng/button';
 import { MenubarModule } from 'primeng/menubar';
+import { CardModule } from 'primeng/card';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { MenubarModule } from 'primeng/menubar';
     HttpClientModule,
     AppRoutingModule,
     ButtonModule,
-    MenubarModule
+    MenubarModule,
+    CardModule
   ],
   providers: [
     AccountService,

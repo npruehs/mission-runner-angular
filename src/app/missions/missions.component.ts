@@ -7,6 +7,8 @@ import { LocalizationService } from '../localization.service';
 import { Mission, MissionStatus } from './mission';
 import { MissionsService } from './missions.service';
 
+import { CardModule } from 'primeng/card';
+
 @Component({
   selector: 'missions',
   templateUrl: './missions.component.html',

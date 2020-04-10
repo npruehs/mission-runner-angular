@@ -1,8 +1,6 @@
 <loading-indicator [data]="getMission()"></loading-indicator>
 
-<div *ngIf="getMission()">
-  <h2>{{ getMission().localizedName }}</h2>
-
+<p-card *ngIf="getMission()" header="{{ getMission().localizedName }}">
   <mission [mission]="getMission()"></mission>
 
   <h4 i18n="@@missiondetails.header.assignedcharacters">Assigned Characters</h4>
@@ -33,4 +31,4 @@
 
   <button pButton *ngIf="canStartMission()" type="button" (click)="startMission()" label="Start Mission" i18n-label="@@missiondetails.button.startmission"></button>
   <button pButton *ngIf="canFinishMission()" type="button" (click)="finishMission()" label="Finish Mission" i18n-label="@@missiondetails.button.finishmission"></button>
-</div>
+</p-card>
