@@ -22,6 +22,7 @@ import { LocalizationService } from './localization.service';
 import { AppRoutingModule }  from './app-routing.module';
 
 import { ButtonModule } from 'primeng/button';
+import { MenubarModule } from 'primeng/menubar';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { ButtonModule } from 'primeng/button';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    ButtonModule
+    ButtonModule,
+    MenubarModule
   ],
   providers: [
     AccountService,
