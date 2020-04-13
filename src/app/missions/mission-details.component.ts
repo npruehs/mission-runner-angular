@@ -12,6 +12,9 @@ import { Character } from '../characters/character';
 import { MissionsService } from './missions.service';
 import { Mission, MissionStatus } from './mission';
 
+import { ButtonModule } from 'primeng/button';
+import { CardModule } from 'primeng/card';
+
 @Component({
   selector: 'mission-details',
   templateUrl: './mission-details.component.html',

@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 
 import { Mission, MissionStatus } from './mission';
 
+import { CardModule } from 'primeng/card';
+
 @Component({
   selector: 'mission',
   templateUrl: './mission.component.html',

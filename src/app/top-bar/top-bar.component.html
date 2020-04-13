@@ -1,8 +1,7 @@
 <a [routerLink]="['/']">
-  <h1>Mission Runner</h1>
+  <h1 class="ui-widget" style="font-size: 2em; font-weight: bold">Mission Runner</h1>
 </a>
 
 <nav>
-  <a [routerLink]="['/']" class="button fancy-button" i18n="@@topbar.link.account">Account</a> &middot;
-  <a [routerLink]="['/missions']" class="button fancy-button" i18n="@@topbar.link.missions">Missions</a>
+  <p-menubar [model]="items"></p-menubar>
 </nav>

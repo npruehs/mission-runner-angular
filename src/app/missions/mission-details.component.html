@@ -1,8 +1,6 @@
 <loading-indicator [data]="getMission()"></loading-indicator>
 
-<div *ngIf="getMission()">
-  <h2>{{ getMission().localizedName }}</h2>
-
+<p-card *ngIf="getMission()" header="{{ getMission().localizedName }}">
   <mission [mission]="getMission()"></mission>
 
   <h4 i18n="@@missiondetails.header.assignedcharacters">Assigned Characters</h4>
@@ -15,7 +13,7 @@
       <li *ngFor="let skill of character.skills"> {{ skill.localizedSkill }} x{{ skill.count }}</li>
     </ul>
 
-    <button (click)="unassign(index)" i18n="@@missiondetails.button.unassign">Unassign</button>
+    <button pButton type="button" (click)="unassign(index)" label="Unassign" i18n-label="@@missiondetails.button.unassign" class="ui-button-secondary"></button>
   </div>
 
   <h4 i18n="@@missiondetails.header.unassignedcharacters">Unassigned Characters</h4>
@@ -28,9 +26,9 @@
       <li *ngFor="let skill of character.skills"> {{ skill.localizedSkill }} x{{ skill.count }}</li>
     </ul>
 
-    <button (click)="assign(index)" i18n="@@missiondetails.button.assign">Assign</button>
+    <button pButton type="button" (click)="assign(index)" label="Assign" i18n-label="@@missiondetails.button.assign" class="ui-button-secondary"></button>
   </div>
 
-  <button *ngIf="canStartMission()" (click)="startMission()" i18n="@@missiondetails.button.startmission">Start Mission</button>
-  <button *ngIf="canFinishMission()" (click)="finishMission()" i18n="@@missiondetails.button.finishmission">Finish Mission</button>
-</div>
+  <button pButton *ngIf="canStartMission()" type="button" (click)="startMission()" label="Start Mission" i18n-label="@@missiondetails.button.startmission"></button>
+  <button pButton *ngIf="canFinishMission()" type="button" (click)="finishMission()" label="Finish Mission" i18n-label="@@missiondetails.button.finishmission"></button>
+</p-card>

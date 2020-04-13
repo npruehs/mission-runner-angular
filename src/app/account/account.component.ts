@@ -5,6 +5,8 @@ import { LoggerService, LogLevel } from '../logger.service';
 import { AccountService } from './account.service';
 import { Account } from './account';
 
+import { CardModule } from 'primeng/card';
+
 @Component({
   selector: 'account',
   templateUrl: './account.component.html',

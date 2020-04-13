@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
@@ -21,6 +22,11 @@ import { LocalizationService } from './localization.service';
 
 import { AppRoutingModule }  from './app-routing.module';
 
+import { ButtonModule } from 'primeng/button';
+import { MenubarModule } from 'primeng/menubar';
+import { CardModule } from 'primeng/card';
+import { DialogModule } from 'primeng/dialog';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,8 +39,13 @@ import { AppRoutingModule }  from './app-routing.module';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ButtonModule,
+    MenubarModule,
+    CardModule,
+    DialogModule
   ],
   providers: [
     AccountService,
