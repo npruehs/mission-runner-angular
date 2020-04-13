@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 
 import { HttpService } from '../http.service';
 
+import { DialogModule } from 'primeng/dialog';
+
 @Component({
   selector: 'loading-indicator',
   templateUrl: './loading-indicator.component.html',

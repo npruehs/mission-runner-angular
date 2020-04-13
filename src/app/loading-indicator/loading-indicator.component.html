@@ -1,2 +1,5 @@
-<div *ngIf="!getData()" i18n="@@loadingindicator.label.loading">Loading...</div>
-<div *ngIf="hasError()" i18n="@@loadingindicator.label.error">ERROR!</div>
+<div *ngIf="!getData() && !hasError()" i18n="@@loadingindicator.label.loading">Loading...</div>
+
+<p-dialog *ngIf="hasError()" header="ERROR!" i18n-header="@@loadingindicator.label.error" [visible]="true" [modal]="true" [draggable]="false" [resizable]="false">
+  <div i18n="@@loadingindicator.label.error.connectionfailed">Unable to connect to server. Please reload the page and try again.</div>
+</p-dialog>

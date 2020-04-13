@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
@@ -24,6 +25,7 @@ import { AppRoutingModule }  from './app-routing.module';
 import { ButtonModule } from 'primeng/button';
 import { MenubarModule } from 'primeng/menubar';
 import { CardModule } from 'primeng/card';
+import { DialogModule } from 'primeng/dialog';
 
 @NgModule({
   declarations: [
@@ -37,11 +39,13 @@ import { CardModule } from 'primeng/card';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
     ButtonModule,
     MenubarModule,
-    CardModule
+    CardModule,
+    DialogModule
   ],
   providers: [
     AccountService,
